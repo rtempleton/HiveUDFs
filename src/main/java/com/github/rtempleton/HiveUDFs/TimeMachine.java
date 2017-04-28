@@ -52,7 +52,7 @@ public class TimeMachine extends UDF {
 		DateTime dt = new DateTime(input.getTime());
 		dt = dt.withSecondOfMinute(0);
 		dt = dt.withMillisOfSecond(0);
-		dt = dt.plusMinutes(-(dt.getMinuteOfHour()%bucketSize) + bucketCount*bucketSize);
+		dt = dt.plusMinutes(-(dt.getMinuteOfHour()%Math.abs(bucketSize)) + bucketCount*Math.abs(bucketSize));
 		
 		return new Timestamp(dt.getMillis());
 
