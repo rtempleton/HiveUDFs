@@ -58,5 +58,13 @@ public class TimeMachine extends UDF {
 
 	}
 	
+	public Timestamp evaluate(final Long input, final int bucketSize, final int bucketCount){
+		return evaluate(new Timestamp(input), bucketSize, bucketCount);
+	}
+	
+	public Timestamp evaluate(final String input, final int bucketSize, final int bucketCount){
+		return evaluate(Timestamp.valueOf(input), bucketSize, bucketCount);
+	}
+	
 
 }
